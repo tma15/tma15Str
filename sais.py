@@ -69,7 +69,6 @@ def sa_is(S):
     :suf(S, i): the suffix in S starting at S[i] and running to the sentinel.
     """
 
-
     """ Scan S once to classify all the characters as L- or S-type into t
     AND
     Scan t once to find all the LMS-substrings in S into P1 """
@@ -180,11 +179,15 @@ def sa_is(S):
             i += 1
     return SA1[1:]
 
+def make(S):
+    S += '$'
+    return sa_is(S)
+
 if __name__ == '__main__':
-#    S = 'abracadabra$'
-    S = 'mmiissiissiippii$'
-#    S = 'mmiissiippiissii$'
-#    S = 'aeadacab$'
-#    S = 'abracadabra0AbRa4Cad14abra$'
-    sa = sa_is(S)
+    S = 'abracadabra'
+#    S = 'mmiissiissiippii'
+#    S = 'mmiissiippiissii'
+#    S = 'aeadacab'
+#    S = 'abracadabra0AbRa4Cad14abra'
+    sa = make(S)
     print sa
